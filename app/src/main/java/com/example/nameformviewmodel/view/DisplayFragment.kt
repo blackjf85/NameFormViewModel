@@ -25,10 +25,9 @@ class DisplayFragment: Fragment() {
         return binding.root
     }
 
-    // Initialize ViewModel in onViewCreated()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Creating ViewModel
+
         viewModel = ViewModelProvider(requireActivity()).get(FormViewModel::class.java)
 
         with(binding) {
