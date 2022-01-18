@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NameFormViewModel</string>
+    <string name="button">Submit</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="back">Back</string>
+</resources>
