@@ -33,7 +33,7 @@ class DisplayFragment: Fragment() {
 
         with(binding) {
             viewModel.users.observe(viewLifecycleOwner) { userName ->
-                userNameTv.text = userName.toString()
+                userNameTv.text = userName.get(0).firstName.toString()
             }
 
             backBtn.setOnClickListener {
