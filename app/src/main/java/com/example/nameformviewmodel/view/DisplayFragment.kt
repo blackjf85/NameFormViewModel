@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.nameformviewmodel.R
 import com.example.nameformviewmodel.databinding.FragmentDisplayBinding
 import com.example.nameformviewmodel.viewmodel.FormViewModel
+import com.example.nameformviewmodel.viewmodel.User
 
 class DisplayFragment: Fragment() {
     private var _binding: FragmentDisplayBinding? = null
@@ -31,11 +32,8 @@ class DisplayFragment: Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(FormViewModel::class.java)
 
         with(binding) {
-            viewModel.firstName.observe(viewLifecycleOwner) { firstName ->
-                firstNameTv.text = firstName.toString()
-            }
-            viewModel.lastName.observe(viewLifecycleOwner) { lastName ->
-                lastNameTv.text = lastName.toString()
+            viewModel.users.observe(viewLifecycleOwner) { userName ->
+                userNameTv.text = userName.toString()
             }
 
             backBtn.setOnClickListener {

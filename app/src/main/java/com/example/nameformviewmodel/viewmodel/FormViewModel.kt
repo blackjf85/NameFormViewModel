@@ -3,27 +3,22 @@ package com.example.nameformviewmodel.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nameformviewmodel.view.NameData
 
 class FormViewModel: ViewModel() {
 
-    private var _firstName: MutableLiveData<MutableList<String>> = MutableLiveData()
-    val firstName: LiveData<MutableList<String>> get() = _firstName
-    var firstNames: MutableList<String> = mutableListOf()
+    private var _users: MutableLiveData<List<User>> = MutableLiveData()
+    val users: LiveData<List<User>> get() = _users
+    private val userList: MutableList<User> = mutableListOf()
 
-    private var _lastName: MutableLiveData<MutableList<String>> = MutableLiveData()
-    val lastName: LiveData<MutableList<String>> get() = _lastName
-    var lastNames: MutableList<String> = mutableListOf()
 
-    fun addNameToList(input: NameData){
-        val newFirst: String = input.firstName
-        val newLast: String = input.lastName
+    fun addUser(user: User) {
+        userList.add(user)
 
-        firstNames.add(newFirst)
-        lastNames.add(newLast)
-
-        _firstName.value = firstNames
-        _lastName.value = lastNames
+        _users.value = userList
     }
-
 }
+
+data class User(
+    val firstName: String,
+    val lastName: String
+)

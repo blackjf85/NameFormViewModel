@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.nameformviewmodel.R
 import com.example.nameformviewmodel.databinding.FragmentFormBinding
 import com.example.nameformviewmodel.viewmodel.FormViewModel
+import com.example.nameformviewmodel.viewmodel.User
 
 class FormFragment: Fragment() {
 
@@ -30,9 +31,9 @@ class FormFragment: Fragment() {
         viewModel = ViewModelProvider(requireActivity())[FormViewModel::class.java]
         with(binding) {
             submitBtn.setOnClickListener {
-                val firstNameStr = firstNameEt.text.toString()
-                val lastNameStr = lastNameEt.text.toString()
-                viewModel.addNameToList(NameData(firstNameStr, lastNameStr))
+                val firstName = firstNameEt.text.toString()
+                val lastName = lastNameEt.text.toString()
+                viewModel.addUser(User(firstName, lastName))
 
                 val bundle = Bundle()
                 parentFragmentManager.beginTransaction()
